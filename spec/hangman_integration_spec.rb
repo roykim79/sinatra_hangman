@@ -12,4 +12,10 @@ describe 'the game path', :type => :feature do
     expect(page).to have_css('form#new-game')
     expect(page).to have_css('input.word')
   end
+
+  it 'sends the user to play the game after submitting a word' do
+    fill_in 'word', :with => 'super'
+    click_button 'Play'
+    expect(page).to have_css('form#guess')
+  end
 end

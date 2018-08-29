@@ -7,3 +7,8 @@ require 'pry'
 get '/' do
   erb(:start)
 end
+
+post '/play' do
+  game = Hangman.new(params.fetch('word'))
+  erb(:play)
+end
