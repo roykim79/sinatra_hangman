@@ -1,6 +1,6 @@
 <% if @game.game_status == 'going' %>
   <p>Guesses left: <%= @game.guesses_left %></p>
-  <p class="show-word"><%= @game.show_word %></p>
+  <p class="show-word spaced"><%= @game.show_word %></p>
 
   <form id="guess" class="" action="/play/<%= @game.id %>" method="post">
     <input type="text" name="letter" value="">
