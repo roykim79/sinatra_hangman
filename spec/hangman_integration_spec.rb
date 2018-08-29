@@ -24,4 +24,10 @@ describe 'the game path', :type => :feature do
     click_button 'Play'
     expect(page).to have_content('Guesses left: 5')
   end
+
+  it 'shows the an underscore for each letter in the word in play view' do
+    fill_in 'word', :with => 'super'
+    click_button 'Play'
+    expect(page).to have_content('_____')
+  end
 end
