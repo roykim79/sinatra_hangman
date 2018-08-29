@@ -22,8 +22,21 @@ describe Hangman do
 
     it 'replaces the _ with the guessed letter if it is part of the word' do
       @game.guess('s')
+      @game.guess('u')
       expect(@game.guesses_left()).to eq(5)
-      expect(@game.show_word()).to eq('s____')
+      expect(@game.show_word()).to eq('su___')
+    end
+  end
+
+  describe '#game_status' do
+    it 'sets @game_going to false when all the guesses have been used' do
+      @game.guess('a')
+      @game.guess('b')
+      @game.guess('c')
+      @game.guess('d')
+      @game.guess('f')
+      expect(@game.game_going()).to eq(false)
+
     end
   end
 end
