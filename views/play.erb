@@ -1,7 +1,13 @@
-<p>Guesses left: <%= @game.guesses_left %></p>
-<p class="show-word"><%= @game.show_word %></p>
+<% if @game.game_status == 'going' %>
+  <p>Guesses left: <%= @game.guesses_left %></p>
+  <p class="show-word"><%= @game.show_word %></p>
 
-<form id="guess" class="" action="/play/<%= @game.id %>" method="post">
-  <input type="text" name="letter" value="">
-  <button type="submit" name="button">Guess</button>
-</form>
+  <form id="guess" class="" action="/play/<%= @game.id %>" method="post">
+    <input type="text" name="letter" value="">
+    <button type="submit" name="button">Guess</button>
+  </form>
+<% elsif @game.game_status == 'won' %>
+  <h1>Congratulations, you win</h1>
+<% else %>
+  <h1>You have failed</h1>
+<% end %>

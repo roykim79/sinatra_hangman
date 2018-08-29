@@ -5,6 +5,7 @@ require './lib/hangman'
 require 'pry'
 
 get '/' do
+  Hangman.clear()
   erb(:start)
 end
 
