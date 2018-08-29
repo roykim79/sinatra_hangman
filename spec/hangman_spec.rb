@@ -60,4 +60,11 @@ describe Hangman do
       expect(Hangman.all()).to eq([@game])
     end
   end
+
+  describe '.find' do
+    it 'finds the game by the id parameter' do
+      @game.save()
+      expect(Hangman.find(@game.id)).to eq(@game)
+    end
+  end
 end
