@@ -1,4 +1,6 @@
 class Hangman
+  @@games = []
+
   attr_accessor :word, :guesses_left, :show_word, :game_status
 
   def initialize(word)
@@ -6,6 +8,14 @@ class Hangman
     @guesses_left = 5
     @show_word = '_' * @word.length
     @game_status = 'going'
+  end
+
+  def self.all()
+    @@games
+  end
+
+  def save()
+    @@games.push(self)
   end
 
   def guess(letter)

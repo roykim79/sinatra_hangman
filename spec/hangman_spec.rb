@@ -47,4 +47,17 @@ describe Hangman do
       expect(@game.game_status()).to eq('won')
     end
   end
+
+  describe '.all' do
+    it 'returns a list of saved games that is empty at first' do
+      expect(Hangman.all()).to eq([])
+    end
+  end
+
+  describe '#save' do
+    it 'adds the new game to the games list' do
+      @game.save()
+      expect(Hangman.all()).to eq([@game])
+    end
+  end
 end
