@@ -20,6 +20,11 @@ class Hangman
     @@games.find {|game| game.id == id}
   end
 
+  def self.clear()
+    @@games = []
+    @@next_id = 1
+  end
+
   def save()
     @@games.push(self)
     @@next_id += 1

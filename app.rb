@@ -9,11 +9,13 @@ get '/' do
 end
 
 post '/play' do
-  if params.fetch('word')
-    @game = Hangman.new(params.fetch('word'))
-  else
+  @game = Hangman.new(params.fetch('word'))
+  @game.save()
+  erb(:play)
+end
 
-  end
-
+post '/play/:id' do
+  @game = Hangman.find(params[:id].to_i)
+  @game.guess(params.fetch('letter'))
   erb(:play)
 end

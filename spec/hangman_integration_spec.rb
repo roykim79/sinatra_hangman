@@ -30,4 +30,12 @@ describe 'the game path', :type => :feature do
     click_button 'Play'
     expect(page).to have_content('_____')
   end
+
+  it 'replaces the underscores with correctly guessed letters' do
+    fill_in 'word', :with => 'super'
+    click_button 'Play'
+    fill_in 'letter', :with => 's'
+    click_button 'Guess'
+    expect(page).to have_content('s____')
+  end
 end

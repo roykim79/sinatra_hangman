@@ -3,6 +3,7 @@ require 'hangman'
 
 describe Hangman do
   before :each do
+    Hangman.clear()
     @game = Hangman.new('super')
   end
 
@@ -65,6 +66,14 @@ describe Hangman do
     it 'finds the game by the id parameter' do
       @game.save()
       expect(Hangman.find(@game.id)).to eq(@game)
+    end
+  end
+
+  describe '.clear' do
+    it 'empties the games list' do
+      @game.save()
+      Hangman.clear()
+      expect(Hangman.all()).to eq([])
     end
   end
 end

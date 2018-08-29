@@ -1,7 +1,7 @@
 <p>Guesses left: <%= @game.guesses_left %></p>
 <p class="show-word"><%= @game.show_word %></p>
 
-<form id="guess" class="" action="/play" method="post">
+<form id="guess" class="" action="/play/<%= @game.id %>" method="post">
   <input type="text" name="letter" value="">
   <button type="submit" name="button">Guess</button>
 </form>
