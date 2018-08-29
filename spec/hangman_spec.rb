@@ -36,7 +36,15 @@ describe Hangman do
       @game.guess('d')
       @game.guess('f')
       expect(@game.game_going()).to eq(false)
+    end
 
+    it 'sets @game_going to false when the word have been fully guessed correctly' do
+      @game.guess('s')
+      @game.guess('u')
+      @game.guess('p')
+      @game.guess('e')
+      @game.guess('r')
+      expect(@game.game_going()).to eq(false)
     end
   end
 end

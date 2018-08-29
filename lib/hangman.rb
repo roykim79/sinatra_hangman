@@ -22,7 +22,7 @@ class Hangman
   end
 
   def game_status()
-    if (@guesses_left < 1) 
+    if (@guesses_left < 1) | (@word == @show_word)
       @game_going = false
     end
   end
