@@ -3,8 +3,8 @@
   <p class="show-word spaced"><%= @game.show_word %></p>
 
   <form id="guess" class="" action="/play/<%= @game.id %>" method="post">
-    <input type="text" name="letter" value="">
-    <button type="submit" name="button">Guess</button>
+    <input class="form-control" type="text" name="letter" value="">
+    <button class="btn btn-primary" type="submit" name="button">Guess</button>
   </form>
 <% elsif @game.game_status == 'won' %>
   <h1>Congratulations, you win</h1>
