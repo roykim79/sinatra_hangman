@@ -9,6 +9,6 @@ get '/' do
 end
 
 post '/play' do
-  game = Hangman.new(params.fetch('word'))
+  @game = Hangman.new(params.fetch('word'))
   erb(:play)
 end

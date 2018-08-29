@@ -18,4 +18,10 @@ describe 'the game path', :type => :feature do
     click_button 'Play'
     expect(page).to have_css('form#guess')
   end
+
+  it 'shows the number of guesses remaining while playing' do
+    fill_in 'word', :with => 'super'
+    click_button 'Play'
+    expect(page).to have_content('Guesses left: 5')
+  end
 end
