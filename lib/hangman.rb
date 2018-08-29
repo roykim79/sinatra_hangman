@@ -1,11 +1,11 @@
 class Hangman
-  attr_accessor :word, :guesses_left, :show_word, :game_going
+  attr_accessor :word, :guesses_left, :show_word, :game_status
 
   def initialize(word)
     @word = word
     @guesses_left = 5
     @show_word = '_' * @word.length
-    @game_going = true
+    @game_status = 'going'
   end
 
   def guess(letter)
@@ -18,12 +18,14 @@ class Hangman
     else
       @guesses_left -= 1
     end
-    game_status()
+    update_status()
   end
 
-  def game_status()
-    if (@guesses_left < 1) | (@word == @show_word)
-      @game_going = false
+  def update_status()
+    if (@guesses_left < 1)
+      @game_status = 'lost'
+    elsif @word == @show_word
+      @game_status = 'won'
     end
   end
 end

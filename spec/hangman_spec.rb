@@ -28,23 +28,23 @@ describe Hangman do
     end
   end
 
-  describe '#game_status' do
-    it 'sets @game_going to false when all the guesses have been used' do
+  describe '#update_status' do
+    it 'sets @game_status to "lost" when all the guesses have been used' do
       @game.guess('a')
       @game.guess('b')
       @game.guess('c')
       @game.guess('d')
       @game.guess('f')
-      expect(@game.game_going()).to eq(false)
+      expect(@game.game_status()).to eq('lost')
     end
 
-    it 'sets @game_going to false when the word have been fully guessed correctly' do
+    it 'sets @game_status to "won" when the word has been guessed correctly' do
       @game.guess('s')
       @game.guess('u')
       @game.guess('p')
       @game.guess('e')
       @game.guess('r')
-      expect(@game.game_going()).to eq(false)
+      expect(@game.game_status()).to eq('won')
     end
   end
 end
